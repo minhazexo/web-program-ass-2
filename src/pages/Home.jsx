@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import Hero from '../components/Hero.jsx'
+import Rail from '../components/Rail.jsx'
 import MovieModal from '../components/MovieModal.jsx'
 import { Link } from 'react-router-dom'
 
@@ -40,32 +41,26 @@ function Home() {
 
       {/* trending with big rank numbers */}
       {trending.length > 0 && (
-        <section className="rail">
-          <h2>🔥 Trending Now</h2>
-          <div className="rail-row">
-            {trending.map((s, i) => (
-              <div className="rank-card" key={s.id} onClick={() => setSelected(s)}>
-                <span className="rank-num">{i + 1}</span>
-                <img src={s.image.medium} alt={s.name} loading="lazy" />
-              </div>
-            ))}
-          </div>
-        </section>
+        <Rail title="🔥 Trending Now" link="/movies">
+          {trending.map((s, i) => (
+            <div className="rank-card" key={s.id} onClick={() => setSelected(s)}>
+              <span className="rank-num">{i + 1}</span>
+              <img src={s.image.medium} alt={s.name} loading="lazy" />
+            </div>
+          ))}
+        </Rail>
       )}
 
       {/* top rated posters */}
       {topRated.length > 0 && (
-        <section className="rail">
-          <h2>⭐ Top Rated</h2>
-          <div className="rail-row">
-            {topRated.map((s) => (
-              <div className="rail-card" key={s.id} onClick={() => setSelected(s)}>
-                <img src={s.image.medium} alt={s.name} loading="lazy" />
-                <p>{s.name}</p>
-              </div>
-            ))}
-          </div>
-        </section>
+        <Rail title="⭐ Top Rated" link="/movies">
+          {topRated.map((s) => (
+            <div className="rail-card" key={s.id} onClick={() => setSelected(s)}>
+              <img src={s.image.medium} alt={s.name} loading="lazy" />
+              <p>{s.name}</p>
+            </div>
+          ))}
+        </Rail>
       )}
 
       {/* airing today strip */}
