@@ -1,13 +1,21 @@
 import { useEffect, useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import MovieCard from '../components/MovieCard.jsx'
 import MovieModal from '../components/MovieModal.jsx'
 
 function Movies() {
+  const [params] = useSearchParams()
+  const q = params.get('q') || ''
   const [movies, setMovies] = useState([])
-  const [search, setSearch] = useState('')
+  const [search, setSearch] = useState(q)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
   const [selected, setSelected] = useState(null)
+
+  // if user searched from navbar, update box value
+  useEffect(() => {
+    setSearch(q)
+  }, [q])
 
   // load all shows at first
   useEffect(() => {

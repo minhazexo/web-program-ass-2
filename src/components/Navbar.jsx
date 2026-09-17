@@ -1,9 +1,18 @@
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 
 function Navbar() {
   const [open, setOpen] = useState(false)
+  const [text, setText] = useState('')
   const location = useLocation()
+  const navigate = useNavigate()
+
+  // navbar search -> go to movies page with query
+  const goSearch = (e) => {
+    e.preventDefault()
+    navigate(`/movies?q=${text}`)
+    setOpen(false)
+  }
 
   return (
     <nav className="navbar">
@@ -18,6 +27,17 @@ function Navbar() {
         </button>
 
         <div className={`nav-links ${open ? 'show' : ''}`}>
+          {/* search in navbar */}
+          <form className="nav-search" onSubmit={goSearch}>
+            <input
+              type="text"
+              placeholder="🔍 Search..."
+              value={text}
+              onChange={(e) => setText(e.target.value)}
+            />
+            <button type="submit">Go</button>
+          </form>
+
           <Link
             to="/"
             className={location.pathname === '/' ? 'active' : ''}
