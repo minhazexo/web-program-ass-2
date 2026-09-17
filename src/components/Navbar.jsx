@@ -1,11 +1,19 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 function Navbar() {
   const [open, setOpen] = useState(false)
   const [text, setText] = useState('')
+  // dark mode on by default, remember choice
+  const [dark, setDark] = useState(() => localStorage.getItem('theme') !== 'light')
   const location = useLocation()
   const navigate = useNavigate()
+
+  // apply theme on body
+  useEffect(() => {
+    document.body.className = dark ? '' : 'light'
+    localStorage.setItem('theme', dark ? 'dark' : 'light')
+  }, [dark])
 
   // navbar search -> go to movies page with query
   const goSearch = (e) => {
@@ -32,6 +40,7 @@ function Navbar() {
             <input
               type="text"
               placeholder="🔍 Search..."
+              aria-label="Search shows"
               value={text}
               onChange={(e) => setText(e.target.value)}
             />
@@ -49,14 +58,6 @@ function Navbar() {
             Browse Movies
           </Link>
           <a
-            href="https://github.com/minhazexo/web-program-ass-2"
-            target="_blank"
-            rel="noreferrer"
-            className="nav-github"
-          >
-            GitHub
-          </a>
-          <a
             href="https://minhazexo.vercel.app/"
             target="_blank"
             rel="noreferrer"
@@ -64,6 +65,10 @@ function Navbar() {
           >
             Creator
           </a>
+          {/* light / dark toggle */}
+          <button className="theme-btn" onClick={() => setDark(!dark)} title="Change theme" aria-label="Toggle light and dark mode">
+            {dark ? '☀️' : '🌙'}
+          </button>
         </div>
       </div>
     </nav>

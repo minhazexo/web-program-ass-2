@@ -1,6 +1,6 @@
 // one movie card
 function MovieCard({ movie, onDetails }) {
-  const img = movie.image?.medium || movie.image?.original || 'https://via.placeholder.com/210x295?text=No+Image'
+  const img = movie.image?.medium || movie.image?.original || "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='210' height='295'><rect width='100%' height='100%' fill='%23334155'/><text x='50%' y='50%' fill='%2394a3b8' font-size='16' text-anchor='middle'>No Image</text></svg>"
   const year = movie.premiered ? movie.premiered.slice(0, 4) : 'N/A'
   const rating = movie.rating?.average ? movie.rating.average : 'N/A'
 

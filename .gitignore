@@ -12,6 +12,11 @@ dist
 dist-ssr
 *.local
 
+# local-only notes, never commit
+tvmaze-api-notes.md
+needed things.md
+vercel-deploy.md
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
