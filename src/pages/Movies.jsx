@@ -26,6 +26,28 @@ function Movies() {
       })
   }, [])
 
+  // live search - fetch as user types (with small delay)
+  useEffect(() => {
+    // skip first load, only run when user types
+    if (search.trim() === '') return
+
+    const timer = setTimeout(() => {
+      setLoading(true)
+      fetch(`https://api.tvmaze.com/search/shows?q=${search}`)
+        .then((res) => res.json())
+        .then((data) => {
+          setMovies(data.map((item) => item.show))
+          setLoading(false)
+        })
+        .catch(() => {
+          setError('Search failed. Check your internet.')
+          setLoading(false)
+        })
+    }, 500)
+
+    return () => clearTimeout(timer)
+  }, [search])
+
   // search function
   const handleSearch = (e) => {
     e.preventDefault()
