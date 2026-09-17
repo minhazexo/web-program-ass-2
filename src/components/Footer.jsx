@@ -7,7 +7,8 @@ function Footer() {
           <p>Find movies you love. Simple and fast.</p>
         </div>
         <div className="footer-right">
-          <a href="https://github.com" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://github.com/minhazexo/web-program-ass-2" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://minhazexo.vercel.app/" target="_blank" rel="noreferrer">Creator</a>
           <a href="https://www.tvmaze.com/api" target="_blank" rel="noreferrer">TVMaze</a>
         </div>
       </div>

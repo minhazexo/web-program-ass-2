@@ -64,6 +64,21 @@
   font-weight: bold;
 }
 
+.nav-github {
+  border: 1px solid #475569;
+  padding: 7px 14px;
+  border-radius: 6px;
+  color: #e2e8f0 !important;
+}
+
+.nav-creator {
+  background: #2563eb !important;
+  color: #fff !important;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
 .menu-btn {
   display: none;
   background: none;

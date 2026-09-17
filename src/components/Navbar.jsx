@@ -55,6 +55,22 @@ function Navbar() {
           <Link to="/movies" className="nav-btn" onClick={() => setOpen(false)}>
             Browse Movies
           </Link>
+          <a
+            href="https://github.com/minhazexo/web-program-ass-2"
+            target="_blank"
+            rel="noreferrer"
+            className="nav-github"
+          >
+            GitHub
+          </a>
+          <a
+            href="https://minhazexo.vercel.app/"
+            target="_blank"
+            rel="noreferrer"
+            className="nav-creator"
+          >
+            Creator
+          </a>
         </div>
       </div>
     </nav>
