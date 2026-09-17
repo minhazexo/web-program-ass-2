@@ -18,7 +18,7 @@ function Navbar() {
     <nav className="navbar">
       <div className="nav-inner">
         <Link to="/" className="logo">
-          <span className="logo-icon">🎬</span> MovieExplorer
+          <img src="/icon.png" alt="logo" className="logo-img" /> MovieExplorer
         </Link>
 
         {/* simple mobile menu button */}
