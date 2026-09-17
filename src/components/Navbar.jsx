@@ -45,13 +45,6 @@ function Navbar() {
           >
             Home
           </Link>
-          <Link
-            to="/movies"
-            className={location.pathname === '/movies' ? 'active' : ''}
-            onClick={() => setOpen(false)}
-          >
-            Movies
-          </Link>
           <Link to="/movies" className="nav-btn" onClick={() => setOpen(false)}>
             Browse Movies
           </Link>
